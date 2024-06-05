@@ -1,0 +1,108 @@
+/* styles.css */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #000;
+    color: #fff;
+}
+
+.gallery {
+    display: flex;
+    justify-content: center; 
+    overflow-x: auto; 
+    white-space: nowrap;
+    padding: 10px; 
+}
+
+.card {
+    position: relative;
+    width: 24%;
+    height: 100vh;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 2px;
+    margin: 2px;
+    overflow: hidden;
+}
+
+.card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.card:hover img {
+    opacity: 0.1;
+    transform: translateY(-1px);
+}
+
+.card .info {
+    position: absolute;
+    bottom: 50px;
+    left: 20px;
+    opacity: 1;
+    z-index: 2;
+    transform: translateY(10px);
+    transition: opacity 2s ease, transform 2s ease; 
+}
+
+.card:hover .info {
+    opacity: 1;
+    transform: translateY(0);
+    bottom: 38px;
+}
+
+.card .info h1 {
+    margin: 0;
+    font-size: 28px;
+}
+
+.card .info p {
+    margin: 5px 0 0;
+    font-size: 12px;
+    margin-top: 10px;
+}
+
+.know-more {
+    display: none;
+    margin-top: 10px;
+    font-size: 14px;
+    text-decoration: none;
+    color: skyblue;
+    font-weight: bold;
+    z-index: 2;
+}
+
+.card:hover .know-more {
+    display: inline-block;
+}
+
+/* Media Queries for Responsiveness */
+
+/* For tablets and below */
+@media (max-width: 1024px) {
+    .card {
+        width: 20%; /* Adjust width to fit 4 cards in a row */
+    }
+    
+}
+
+@media (max-width: 768px) {
+    .card {
+        width: 50%; /* Adjust width to fit two cards in a row */
+    }
+    .card .info {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .card {
+        width: 100%; /* Full width for one card in a row */
+    }
+    .card .info {
+        display: none;
+    }
+    
+}
